@@ -39,11 +39,11 @@ user = (new MySQL()).select('id', 'login')
 	.fetch();
 console.log(user);
 */
-/*
-users = (new MySQL()).select('id', 'login')
+
+users = (new MySQL()).select('*')
 	.from('users')
-	.where(['id', 'IN', [1, 2]])
+	.where(['id', 'IN', [1, 2, 3]])
 	.fetch();
 
 console.log(users);	
-*/
+
