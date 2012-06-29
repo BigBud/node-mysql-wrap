@@ -1,49 +1,65 @@
 var MySQL = require('../');
 
-	MySQL.connect({
+/*	MySQL.connect({
 		"host" : "localhost",
 		"user" : "test",
 		"password" : "test",
 		"database" : "test"
 	});
+*/
 
 var user, users;	
 
-//users = (new MySQL()).select('id', 'login').from('users').fetch();
-//console.log(users);
+/*****************************************************************/
+users = (new MySQL()).select('id', 'login').from('users');
 
-//users = (new MySQL()).from('users').fetch();
-//console.log(users);
+console.log(1, users.toString());
+//users.fetch();
 
-/*
+/*****************************************************************/
+users = (new MySQL()).select('*').from('users');
+
+console.log(2, users.toString());
+//users.fetch();
+
+/*****************************************************************/
 users = (new MySQL()).select('id', 'login')
 	.from('users')
-	.where({ login: '"ivan"', password: '123456'})
-	.fetch();
+	.where({ login: '"ivan"', password: '123456'});
 
-console.log(users);
-*/
-/*
+console.log(3, users.toString());
+//users.fetch();
+
+/*****************************************************************/
 users = (new MySQL()).select('id', 'login')
 	.from('users')
-	.where({ login: '"ivan"' }, { password: '123456'})
-	.fetch();
+	.where({ login: '"ivan"' }, { password: '123456'});
 
-console.log(users);
-*/
-/*
+console.log(4, users.toString());
+//users.fetch();
+
+/*****************************************************************/
 user = (new MySQL()).select('id', 'login')
 	.from('users')
-	.where({ login: '"ivan"' }, { password: '123456'})
-	.limit(1)
-	.fetch();
-console.log(user);
-*/
+	.where({ login: '"ivan"'})
+	.where({ password: '123456'})
+	.limit(1);
 
+console.log(5, user.toString());
+//user.fetch();
+
+/*****************************************************************/
 users = (new MySQL()).select('*')
 	.from('users')
-	.where(['id', 'IN', [1, 2, 3]])
-	.fetch();
+	.where(['id', 'IN', [1, 2, 3]]);
 
-console.log(users);	
+console.log(6, users.toString());
+//users.fetch();
 
+/*****************************************************************/
+users = (new MySQL()).select('*')
+	.from('users')
+	.where([['id', '=', 1], 'OR', ['id', '=', 2]]);
+
+console.log(7, users.toString());
+//users.fetch();
