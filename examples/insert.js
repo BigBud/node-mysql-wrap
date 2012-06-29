@@ -7,6 +7,23 @@ var MySQL = require('../');
 		"database" : "test"
 	});
 
-(new MySQL).insert('users', ['login', 'email', 'password'])
+var user;
+
+/*****************************************************************/
+users = (new MySQL).insert('users', ['login', 'email', 'password'])
 			.values(['sergey','sergey@mail.org','123456'], ['sergey','sergey@mail.org','123456'])
-			.value('sergey','sergey@mail.org','123456').exec();
+			.value('sergey','sergey@mail.org','123456');
+
+console.log(1, users.toString());
+//users.exec();
+
+/*****************************************************************/
+users = (new MySQL).insert('users')
+			.set({
+				login: '"serge"',
+				email: '"sergey@mail.org"',
+				password: '123456'
+			});
+
+console.log(2, users.toString());
+//users.exec();

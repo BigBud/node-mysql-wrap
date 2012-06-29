@@ -7,6 +7,12 @@ var MySQL = require('../');
 		"database" : "test"
 	});
 	
-var res = (new MySQL).update('users').set({password: 123}).where({id: 1}).exec();
+var users;
 
-console.log(res);
+/*****************************************************************/
+users = (new MySQL).update('users')
+			.set({password: 123, login: '"ivan"'})
+			.where({id: 1});
+
+console.log(1, users.toString());
+//users.exec();
