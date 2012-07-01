@@ -1,12 +1,12 @@
 var MySQL = require('../');
 
-/*	MySQL.connect({
+	MySQL.connect({
 		"host" : "localhost",
 		"user" : "test",
 		"password" : "test",
 		"database" : "test"
 	});
-*/
+
 
 var user, users;	
 
