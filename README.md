@@ -38,12 +38,12 @@ return object
 
 ##insert
 ```js
-(new MySQL()).insert('table', ['col_1', 'col_2']).value('1', '2');
+var lastInsertId = (new MySQL()).insert('table', ['col_1', 'col_2']).value('1', '2');
 
-(new MySQL()).insert('table').set({
-	col_1: '"value"', // if string use two quotes
-	col_2: 1
-})
+var lastInsertId = (new MySQL()).insert('table').set({
+						col_1: '"value"', // if string use two quotes
+						col_2: 1
+					})
 ```
 
 ##fetch
